@@ -1,0 +1,40 @@
+body {
+  background-color:tan;
+}
+
+h1 {
+  text-align: center;
+  font-size: 84px;
+  font-family: cursive;
+}
+
+h2 {
+  font-family: cursive;
+}
+
+strong {
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.box {
+  border: 5px solid black;
+  border-radius: 5px;
+  background-color: wheat;
+  color: black;
+  padding: 1%;
+  margin: 1%;
+  box-sizing: border-box;
+  font-weight: 300;
+}
+
+/* IDs for special class abilities to be unlocked on level up */
+#special-1 {
+  display: none;
+}
+#special-2 {
+  display: none;
+}
+#special-3 {
+  display: none;
+}

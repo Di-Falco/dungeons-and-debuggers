@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Dungeons and Debuggers</title>
+  </head>
+<body>
+<div class="container">
+  <h1 class="box">Dungeons and Debuggers</h1>
+  <form class="box" id="character-creation">
+    <h2>Enter your name:</h2>
+    <input id="player-name" class="form-control" type="text" form-id="character-creation" required>
+    <h2>What kind of class will you play as?</h2>
+    <input type="radio" name="player-class" class="player-class" value="fighter" required>&ensp;Fighter: Good all around stats.<br>
+    <input type="radio" name="player-class" class="player-class" value="ranger" required>&ensp;Ranger: Lower HP/Def in favor of high damage ranged attacks.<br>
+    <input type="radio" name="player-class" class="player-class" value="wizard" required>&ensp;Wizard: Fragile character with strong magic attacks.<br>
+    <button type="submit" form-id="character-creation">Create Character</button>
+  </form>
+  <div class="row justify-content-center">
+    <div class="col-2 box character-sheet">
+      <strong>CHARACTER</strong><br>
+      <span id="character-name"></span>
+      <span id="character-hp"></span>
+      <span id="character-atk"></span>
+      <span id="character-def"></span>
+      <span id="character-crit"></span>
+      <span id="character-mana"></span>
+    </div>
+    <div class="col-9 box">
+      <ul class="event-text">
+
+      </ul>
+    </div>
+  </div>
+  <div class="box actions">
+    <button id="attack">Attack</button>
+    <button id="heal">Heal</button>
+    <button class="special" id="special-1"></button>
+    <button class="special" id="special-2"></button>
+    <button class="special" id="special-3"></button>
+  </div>
+</div>
+</body>
+</html>
