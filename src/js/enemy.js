@@ -26,10 +26,10 @@ export class Enemy {
 export class Goblin extends Enemy {
   constructor(hp, atk, def, ap, lvl) {
     super(hp, atk, def, ap, lvl);
-  // (15, 5, 2, 6, 1)
+  // (15, 5, 3, 6, 1)
   }
 
-  enemyTurn(){
+  enemyTurn(){  //Goblin Logic
     let move = this.smartAI();
       if (this.AP >= 4) {
         if (this.HP < 7){
@@ -71,12 +71,11 @@ export class Goblin extends Enemy {
 
 export class Slime extends Enemy {
   constructor(hp, atk, def, ap, lvl, size) {
-    super(hp, atk, def, ap, lvl);
-    //(56, 9, 7, 8, 2, 2)
+    super(hp, atk, def, ap, lvl); //(56, 9, 7, 8, 2, 2)
     this.size = size;
   }
 
-  enemyTurn() {
+  enemyTurn() {  //Slime Logic
     let move = this.smartAI();
     if (this.AP > 0) {
       if (this.size > 1 && move >=16) {
@@ -110,9 +109,9 @@ export class Slime extends Enemy {
   }
 
   goop() {
-    //this.AP -= 1;
-    return this.attack();
+    // this.AP -= 1;
     // lower opponent defense
+    return this.attack();
   }
 
   jiggle() {
@@ -145,21 +144,23 @@ export class Slime extends Enemy {
   }
 }
 
-export class Theif extends Enemy {
+export class Thief extends Enemy {
   constructor(hp, atk, def, ap, lvl) {
-    super(hp, atk, def, ap, lvl);  // (40, 12, 10, 5, 1)
+    super(hp, atk, def, ap, lvl);  // (40, 12, 5, 5, 1)
   }
 
-  enemyTurn() {
+  enemyTurn() {  //Thief Logic
     let move = this.smartAI();
     if (this.AP > 2) {
       if (move >= 12) {
         return this.slash();
       } else if (move > 6) {
-        return this.attack();
+        return this.swipe();
+      } else {
+        return this.doge();
       }
     } else {
-      return this.attack()
+      return this.swipe()
     }
   }
 
@@ -171,10 +172,14 @@ export class Theif extends Enemy {
   }
 
   doge() {
-    this.DEF += 60;
+    this.AP -= 1;
+    this.DEF += 100;
   }
 
   swipe() {
-    
+    this.DEF = this.baseDEF;
+    let damage = this.ATK;
+    this.AP + 1;
+    return damage;
   }
 }

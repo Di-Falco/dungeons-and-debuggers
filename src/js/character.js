@@ -1,6 +1,5 @@
 // logic for Character class (applies to each player class)
 export class Character {
-  // let character = new Character(50, 10, 10, 1, "Bigby");
   constructor(hp, atk, def, lvl, name) {
     this.baseHP = hp;
     this.baseATK = atk;

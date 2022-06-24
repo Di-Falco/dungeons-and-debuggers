@@ -84,14 +84,8 @@ test('should return a Ranger object with defualt stats', ()=> {
 
 });
 
-
 test('should return a number between 1 to 100', () => {
   const ranger = new Ranger("Mo");
   expect(ranger.crit()).toBeGreaterThanOrEqual(1);
   expect(ranger.crit()).toBeLessThanOrEqual(100);
 });
-
-
-
-
-
