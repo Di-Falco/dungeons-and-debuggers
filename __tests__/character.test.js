@@ -89,3 +89,9 @@ test('should return a number between 1 to 100', () => {
   expect(ranger.crit()).toBeGreaterThanOrEqual(1);
   expect(ranger.crit()).toBeLessThanOrEqual(100);
 });
+
+test('should increase ATK by 8', () => {
+  const ranger = new Ranger("Mo");
+  ranger.rangedAttack();
+  expect(ranger.ATK).toEqual(16);
+});
