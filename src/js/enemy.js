@@ -31,30 +31,30 @@ export class Goblin extends Enemy {
 
   enemyTurn(){  //Goblin Logic
     let move = this.smartAI();
-      if (this.AP >= 4) {
-        if (this.HP < 7){
-          if (move >= 14) {
-            return this.doubleAttack();
-          } else {
-            return this.callHelp();
-          }
-        } else if (move > 17) {
+    if (this.AP >= 4) {
+      if (this.HP < 7){
+        if (move >= 14) {
+          return this.doubleAttack();
+        } else {
           return this.callHelp();
-        } else if (move < 8) {
-          return this.attack();
-        } else {
-          return this.doubleAttack();
         }
-      } else if (this.AP > 0) {
-        if (move > 11) {
-          return this.doubleAttack();
-        } else {
-          return this.attack();
-        }
+      } else if (move > 17) {
+        return this.callHelp();
+      } else if (move < 8) {
+        return this.attack();
+      } else {
+        return this.doubleAttack();
+      }
+    } else if (this.AP > 0) {
+      if (move > 11) {
+        return this.doubleAttack();
       } else {
         return this.attack();
       }
-   }
+    } else {
+      return this.attack();
+    }
+  }
 
   doubleAttack () {
     let damage = this.attack();
@@ -136,7 +136,7 @@ export class Slime extends Enemy {
       return this.attack();
     } else {
       if ((this.baseHP - this.HP) <= 2 && this.ATK >= 4) {
-        this.baseHP += 1
+        this.baseHP += 1;
       }
       this.HP = this.baseHP;
       return this.attack();
@@ -160,7 +160,7 @@ export class Thief extends Enemy {
         return this.doge();
       }
     } else {
-      return this.swipe()
+      return this.swipe();
     }
   }
 

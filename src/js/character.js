@@ -38,11 +38,11 @@ export class Fighter extends Character {
     super(50, 10, 4, 1, name);
   }
 
-  guard() {
-      this.DEF += 1;
+  special1() {
+    this.DEF += 1;
   }
 
-  heavyAttack () {
+  special2() {
     let damage = this.ATK + 6;
     this.DEF -= 2;
     return damage;
@@ -58,9 +58,11 @@ export class Ranger extends Character{
     this.critMultiplier = 1.5;
   }
 
-  rangedAttack() {
+  special1() {
     this.ATK += 8;
-    this.crit();
+    if (this.crit() < this.critChance) {
+      this.ATK = Math.floor(this.ATK * this.critMultiplier);
+    }
     this.attack();
   }
 
@@ -79,19 +81,19 @@ export class Wizard extends Character {
     this.MP = this.baseMP;
   }
 
-  noviceMagicAttack() {
+  special1() {
     this.ATK += 10;
     this.attack();
     this.MP -= 2;
   }
 
-  adeptMagicAttack() {
+  special2() {
     this.ATK += 14;
     this.attack();
     this.MP -= 6;
   }
 
-  expertMagicAttack() {
+  special3() {
     this.ATK += 20;
     this.attack();
     this.MP -= 8;

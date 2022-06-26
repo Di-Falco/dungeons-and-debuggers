@@ -58,13 +58,13 @@ test('should return a fighter object with default stats', () => {
 
 test('should increase DEF by 1', () => {
   const fighter = new Fighter("Bigby")
-  fighter.guard();
+  fighter.special1();
   expect(fighter.DEF).toEqual(5);
 });
 
 test('should return ATK + 6, and DEF - 2', () => {
   const fighter = new Fighter("Bigby");
-  expect(fighter.heavyAttack()).toEqual(16);
+  expect(fighter.special2()).toEqual(16);
   expect(fighter.DEF).toEqual(2);
 });
 
@@ -92,6 +92,6 @@ test('should return a number between 1 to 100', () => {
 
 test('should increase ATK by 8', () => {
   const ranger = new Ranger("Mo");
-  ranger.rangedAttack();
+  ranger.special1();
   expect(ranger.ATK).toEqual(16);
 });
